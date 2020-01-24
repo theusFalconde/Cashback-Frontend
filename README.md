@@ -1,29 +1,27 @@
-# cashback-front
+# Cashback Front-end
 
-## Project setup
-```
-npm install
-```
+## Descrição
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+Projeto front-end para o projeto <a href="https://github.com/theusFalconde/cashback">Cashback</a>.
 
-### Compiles and minifies for production
-```
-npm run build
-```
+Desenvolvido utilizando o framework javascript Vue com o plug-in Vuetify
 
-### Run your tests
-```
-npm run test
+## API
+
+Todas as API`s utilizadas estão disponíveis no projeto <a href="https://github.com/theusFalconde/cashback">Cashback</a>
+
+## Instalação
+
+```bash
+$ npm install
 ```
 
-### Lints and fixes files
-```
-npm run lint
-```
+## Rodando o app
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+```bash
+# Desenvolvimento
+$ npm run serve
+
+# Produção
+$ npm run build
+```
