@@ -10,6 +10,9 @@ Desenvolvido utilizando o framework javascript Vue com o plug-in Vuetify
 
 Todas as API`s utilizadas estão disponíveis no projeto <a href="https://github.com/theusFalconde/cashback">Cashback</a>
 
+Está com apontamento para a url <a href="http>//localhost:3000">http>//localhost:3000</a>
+
+
 ## Instalação
 
 ```bash
