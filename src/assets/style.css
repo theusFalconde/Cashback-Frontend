@@ -18,11 +18,6 @@ button {
   border-bottom: 1px solid #b4b4b4;
 }
 
-.CodeMirror-scroll {
-  text-align: left;
-  z-index: 1;
-}
-
 .v-alert .v-alert__icon.v-icon,
 .v-alert__dismissible .v-icon {
   color: white;
@@ -71,6 +66,38 @@ button {
 
 .w-20 {
   width: 20%;
+}
+
+.w-30 {
+  width: 30%;
+}
+
+.w-40 {
+  width: 40%;
+}
+
+.w-50 {
+  width: 50%;
+}
+
+.w-60 {
+  width: 60%;
+}
+
+.w-70 {
+  width: 70%;
+}
+
+.w-80 {
+  width: 80%;
+}
+
+.w-85 {
+  width: 85%;
+}
+
+.w-90 {
+  width: 90%;
 }
 
 .w-100 {

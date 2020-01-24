@@ -6,7 +6,7 @@ const confirmDialog = (title, message, loader = false, preConfirm = null) =>
   Swal.fire({
     title: title,
     text: message,
-    type: "question",
+    icon: "question",
     showCancelButton: true,
     confirmButtonText: "Sim",
     cancelButtonText: "Não",

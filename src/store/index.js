@@ -7,7 +7,7 @@ import modules from './modules'
 Vue.use(Vuex)
 
 const vuexLocalStorage = new VuexPersist({
-  key: 'mkt-manager',
+  key: 'cashback',
   storage: window.localStorage,
   supportCircular: true
 })

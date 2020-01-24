@@ -7,16 +7,16 @@
         permanent
         app
         expand-on-hover
-        v-if="usuario !== null"
+        v-if="usuario !== null && usuario.id !== 0"
       >
         <v-list class="pt-0 h-90">
-          <v-list-item two-line>
+          <v-list-item two-line style="padding-left: 8px;">
             <v-list-item-avatar>
-              <v-img src="http://3.bp.blogspot.com/-p4D76Mb6gv4/UKTsMmLbQHI/AAAAAAAAA8k/dhOemZwgws4/s1600/programador.jpg"></v-img>
+              <v-img src="./assets/user.png"></v-img>
             </v-list-item-avatar>
 
             <v-list-item-content>
-              <v-list-item-title>Administrador do Sistema</v-list-item-title>
+              <v-list-item-title>{{ usuario.nome }}</v-list-item-title>
             </v-list-item-content>
           </v-list-item>
 
@@ -59,7 +59,7 @@
         <v-divider></v-divider>
 
         <div class="ta-c pt-3 px-3 body-2 text-truncate">
-          <span>© Mkt Manager 2019</span>
+          <span>© Cashback 2020</span>
           <br />
           <span class="grey--text">Versão: {{ versao }}</span>
         </div>
@@ -75,11 +75,11 @@
         <v-toolbar-title class="headline text-uppercase">
           <v-img
             alt="Vuetify Logo"
-            class="shrink mr-2"
+            class="shrink ml-5 mr-2"
             contain
-            src="https://cdn.vuetifyjs.com/images/logos/vuetify-logo-dark.png"
+            src="./assets/cashback.png"
             transition="scale-transition"
-            width="40"
+            width="150"
           ></v-img>
         </v-toolbar-title>
         <v-spacer></v-spacer>
@@ -104,27 +104,29 @@
 import Alert from "./util/alert";
 import { mapGetters } from "vuex";
 import { version } from "./../package.json";
+import Utils from "./util/utils"
 
 export default {
   name: "App",
   data: () => ({
     drawer: null,
     versao: version,
-    usuario: {},
     itens: [
       { icon: "home", text: "Home", to: "/" },
-      {
+      { icon: "search", text: "Consulta Externa", to: "/consulta" },
+      { icon: "info", text: "Sobre", to: "/sobre" }
+      /*{
         icon: "group_add",
         text: "Cadastro",
         sub: [{ icon: "info", text: "Sobre", to: "/sobre" }]
-      }
+      }*/
     ]
   }),
   computed: {
     ...mapGetters({
       error: "core/error",
-      success: "core/success"
-      //usuario: "usuario/usuario"
+      success: "core/success",
+      usuario: "usuario/usuario"
     })
   },
   methods: {
@@ -134,7 +136,7 @@ export default {
         "Deseja Realmente realizar o Logout?"
       ).then(res => {
         if (res.value) {
-          //this.$store.dispatch("usuario/logout");
+          this.$store.dispatch("usuario/logout");
         }
       });
     }
@@ -142,9 +144,8 @@ export default {
   watch: {
     error(value) {
       if (value) {
-        console.log(value);
-        let { error, status, message } = value;
-        Alert.error(error, `${status}: ${message}`);
+        let { error, statusCode, message } = value;
+        Alert.error(statusCode + ': ' + error, Utils.formatErrorMessage(message));
         this.$store.dispatch("core/clearError");
       }
     },

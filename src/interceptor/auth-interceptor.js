@@ -14,10 +14,6 @@ export default function setup() {
   );
   axios.interceptors.response.use(
     response => {
-      let token = response.headers.authorization;
-      if (token) {
-        store.state.usuario.token = token;
-      }
       return response;
     },
     error => {
